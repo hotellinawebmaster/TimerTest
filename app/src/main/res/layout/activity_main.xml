@@ -11,42 +11,32 @@
         android:id="@+id/stop_xml"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="28dp"
-        android:layout_marginBottom="204dp"
+        android:layout_marginEnd="104dp"
+        android:layout_marginBottom="224dp"
         android:onClick="stopMethod"
         android:text="Stop"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 
     <Button
-        android:id="@+id/pause_xml"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="204dp"
-        android:onClick="pauseMethod"
-        android:text="Pause"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/stop_xml"
-        app:layout_constraintHorizontal_bias="0.461"
-        app:layout_constraintStart_toEndOf="@+id/run_xml" />
-
-    <Button
         android:id="@+id/run_xml"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="28dp"
-        android:layout_marginBottom="204dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginBottom="224dp"
         android:onClick="runMethod"
         android:text="Run"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/stop_xml"
+        app:layout_constraintHorizontal_bias="0.079"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/time_xml"
-        android:layout_width="246dp"
-        android:layout_height="55dp"
+        android:layout_width="278dp"
+        android:layout_height="57dp"
         android:text="0:0:0 secs"
-        android:textAlignment="textStart"
+        android:textAlignment="center"
         android:textColor="#FFFFFF"
         android:textSize="40sp"
         app:layout_constraintBottom_toBottomOf="parent"
