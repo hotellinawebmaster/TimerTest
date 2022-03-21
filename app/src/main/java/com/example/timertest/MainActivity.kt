@@ -21,7 +21,7 @@ class MainActivity : AppCompatActivity() {
     var cicle : Int = 0
     var is_running :Boolean = false
     var paused : Boolean =false
-    var delay : Long = 25
+    var delay : Long = 1000 // update UI every 1 second
     lateinit var runBtn : Button
     lateinit var pauseBtn : Button
     lateinit var stopBtn : Button
@@ -51,17 +51,27 @@ class MainActivity : AppCompatActivity() {
                 handler.postDelayed(this, delay)
             }
         }
+
         pauseBtn.isEnabled = false
+
+
 
     } // OnCreate END
 
-
+    // check for time on Intenet: resources
     // http://www.unitarium.com/time-calculator
+    // https://www.daftlogic.com/projects-convert-milliseconds-to-hours-minutes-seconds.htm
     fun operation(){
         time_total = elapsedRealtime() - time_operation_start
-       // time_total = time_diff
-        Log.d("TAG1", cicle.toString() +   "**time_total= " + time_total )
-        timeTextView.text = (time_total / 10 ).toString()
+
+        val hours =  ( time_total / 1000 / 60 / 60 )
+        val minutes = (time_total / 1000 / 60) % 60
+        val seconds = (time_total / 1000) % 60
+
+       // Log.d("TAG1",   " time_initialTEST= " + time_total + "   "  + hours+ ":" + minutes + ": " + seconds + " secs")
+
+        Log.d("TAG1", cicle.toString() +   " time_total= " + time_total + "   " +hours+ ":" + minutes + ":" + seconds)
+        timeTextView.text =  hours.toString() + ":" + minutes.toString() + ":" + seconds.toString() + " secs"
         cicle++
     }
 
@@ -83,9 +93,10 @@ class MainActivity : AppCompatActivity() {
             handler.removeCallbacks(runnable)
             paused = true
             time_total = elapsedRealtime() - time_operation_start
-            //time_total = time_diff
-            //Log.d("TAG1", "PAUSED NOW " + " time_diff=" + time_diff + " time_total= " + time_total)
-            timeTextView.text = (time_total / 10).toString()
+            val hours =  ( time_total / 1000 / 60 / 60 )
+            val minutes = (time_total / 1000 / 60) % 60
+            val seconds = (time_total / 1000) % 60
+            timeTextView.text =  hours.toString() + ":" + minutes.toString() + ":" + seconds.toString() + " secs"
             pauseBtn.setText("RESUME")
         }
         else
@@ -103,7 +114,7 @@ class MainActivity : AppCompatActivity() {
         handler.removeCallbacks(runnable)
         time_total = 0
         cicle = 0
-        timeTextView.text = "0"
+        timeTextView.text = "0:0:0 secs"
         Log.d("TAG1","stopMethod:this=" + this.toString())
         is_running = false
         paused = false
