@@ -11,7 +11,7 @@
         android:id="@+id/stop_xml"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="104dp"
+        android:layout_marginEnd="72dp"
         android:layout_marginBottom="224dp"
         android:onClick="stopMethod"
         android:text="Stop"
@@ -22,13 +22,12 @@
         android:id="@+id/run_xml"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="108dp"
         android:layout_marginBottom="224dp"
         android:onClick="runMethod"
         android:text="Run"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/stop_xml"
-        app:layout_constraintHorizontal_bias="0.079"
+        app:layout_constraintHorizontal_bias="0.417"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
